@@ -1,0 +1,9 @@
+# Switch into a virtual environment
+# pip install -r requirements.txt
+mycolorpy
+dash==2.6.2
+numpy>=1.16.2
+pandas>=0.24.2
+gunicorn==19.9.0
+openpyxl
+dash-bootstrap-components
