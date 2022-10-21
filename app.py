@@ -13,7 +13,7 @@ import pandas as pd
 from dash.dependencies import Input, Output, State
 import plotly.express as px
 from f_evolution_tools import *
-import utils
+
 
 table_header_style = {
     "backgroundColor": "rgb(2,21,70)",
@@ -25,6 +25,7 @@ dpe_colors = ['#009900', '#33cc33', '#B3FF00', '#e6e600', '#FFB300', '#FF4D00', 
 
 data_set_from_excel = pd.read_excel("data/Hypotheses_ResTer_Heating_Scenario1.xlsx", None);
 #data_set_from_excel['year_res_type']:   building_type  year  retrofit_improvement
+#data_set_from_excel["date_step"]=5
 
 def Compute_param_and_launch_simulation(data_set_from_excel):
     dim_names = ["Energy_source", "building_type", "Vecteur", "year"];
@@ -70,10 +71,6 @@ app.title = "Pharmacokinetics Calculator"
 server = app.server
 
 APP_PATH = str(pl.Path(__file__).parent.resolve())
-
-pkdata = pd.read_csv(os.path.join(APP_PATH, os.path.join("data", "pkdata.csv")))
-
-pkdata =[{'x': 1, 'y': 4,},{ 'x': 2,"y":3},{ 'x': 3,"y":5}]
 
 columns_type = {"building_type" : "text","year" : "numeric","retrofit_improvement" : "numeric",
                 'Energy_source': "text", 'building_type': "text", 'Biomasse': "numeric", 'Chaudière fioul': "numeric",
